@@ -1,228 +1,37 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farhad Doll</title>
-  <!--fonts-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
-  <!--Boostrap-->
-  <link href="https://cdn.jsdelivr.net/m/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <!--feather icon-->
-  <script src="https://unpkg.com/feather-icons"></script> 
-
-  <link rel="stylesheet" href="style.css">
-  <!--alpine js-->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <!--APP-->
-  <script src="src/app.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhad Doll - Login & Register</title>
+    <link rel="stylesheet" href="lores.css">
 </head>
-<body>  
-  <!--navbar start-->
-  <nav class="navbar">
-    <a href="#" class="navbar-logo">Farhad<span>Doll</span></a>
-    <div class="navbar-nav">
-      <a href="#home">Beranda</a>
-      <a href="#product">Produk</a>
-      <a href="#menu">Tentang</a>
-      
-    </div>
-    <div class="navbar-extra">
-        <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
-        <a href="login.html" id="shopping-cart-button"><i data-feather="log-out"></i></a>
-        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-    </div>
-
-    <!-- Shopping cart start-->
-     <div class="shopping-cart">
-      <div class="cart-item">
-        <img src="img/6.png" alt="Product 1">
-        <div class="item-detail">
-          <a href="pay.html"><h3>Boneka Biasa</h3></a>
-          <div class="item-price">IDR 30K</div>
-        </div>
-        <i data-feather="trash-2" class="remove-item"></i>
-      </div>
-      <div class="cart-item">
-        <img src="img/7.png" alt="Product 1">
-        <div class="item-detail">
-          <a href="pay.html"><h3>Boneka Spesial</h3></a>
-          <div class="item-price">IDR 30K</div>
-        </div>
-        <i data-feather="trash-2" class="remove-item"></i>
-      </div>
-      <div class="cart-item">
-        <img src="img/8.png" alt="Product 1">
-        <div class="item-detail">
-          <a href="pay.html"><h3>Boneka Pernikahan</h3></a>
-          <div class="item-price">IDR 30K</div>
-        </div>
-        <i data-feather="trash-2" class="remove-item"></i>
-      </div>
-     </div>
-     <!-- Shopping cart end-->
-
-
-  </nav>
-  <!--navbar end-->
-
-  <!--hero section-->
-  <section class="hero" id="home">
-    <main class="content">
-      <h1>Mari Jelajahi <span>Boneka</span></h1>
-      <p>Mari bersama membeli boneka dengan penuh rasa bahagia</p>
-    </main>
-  </section>
-  <!--hero section end-->
-  <!--about sectionend-->
-  <!--menu section-->
-  <section id="menu" class="menu">
-    <h2><span>Tentang</span> Kami</h2>
-    <p>Kami adalah Kelompok 3 dari Desain dan Implementasi </p>
-  
-    <div class="row">
-      <div class="menu-card">
-        <img src="img/profile/apri.jpg" alt="1" class="menu-card-img">
-        <h3 class="menu-card-tittle">Heru Teguh Apriyanto</h3>
-        <p class="menu-card-price">Front End</p>
-        
-      </div>
-      <div class="menu-card">
-        <img src="img/profile/fawas.jpg" alt="2" class="menu-card-img">
-        <h3 class="menu-card-tittle">- Fawas Aditya Fernandez -</h3>
-        <p class="menu-card-price">UI/UX Designer</p>
-       
-      </div>
-      <div class="menu-card">
-        <img src="img/profile/dimas.jpg" alt="3" class="menu-card-img">
-        <h3 class="menu-card-tittle">M. Dimas Wibowo Sinaga</h3>
-        <p class="menu-card-price">UI/UX Tester</p>
-        
-      </div>
-      <div class="menu-card">
-        <img src="img/profile/jo.jpeg" alt="4" class="menu-card-img">
-        <h3 class="menu-card-tittle">- Jonathan Rifqi Sibonar -</h3>
-        <p class="menu-card-price">Quality Assurance</p>
-       
-      </div>
-      <div class="menu-card">
-        <img src="img/profile/ridwan.jpg" alt="4" class="menu-card-img">
-        <h3 class="menu-card-tittle">- Ridwan Asyari -</h3>
-        <p class="menu-card-price">Back End</p>
-       
-      </div>
-    </div>
-  </section>
-  
-  <!--menu section end-->
-
-  <!--Product section start-->
-  <section class="product" id="product" x-data="product">
-    <h2><span>Produk</span> Kami</h2>
-    
-    <div class="row">
-      <template x-for="(item, index) in items" x-key="index">
-        <div class="product-card">
-          <div class="product-icon">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-          </div>
-          <div class="product-image">
-            
-            <img :src="'img/' + item.img" :alt="item.name">
-          </div>
-          <div class="product-content">
-            <h3 x-text="item.name"></h3>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
+<body>
+    <!-- Halaman Login -->
+    <section class="login-page">
+        <div class="login-container">
+            <div class="left-panel">
+                <img src="img/6.png" alt="Pink Bear" class="bear-img">
             </div>
-            <div class="product-price"><span x-text="item.price"></span></div>
-          </div>
-        </div>
-      </template>
-    </div>
-  </section>
-  
-  <!--Product section end-->
+            <div class="right-panel">
+                <h2>Farhad <strong>Doll</strong></h2>
+                <p>Masukkan Username dan Password untuk masuk</p>
+                <form>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Masukkan Username">
 
-  <!--contact section-->
-  <section id="contact" class="contact">
-    <h2><span>Kontak</span> Kami</h2>
-    <p>Silahkan Hubungi kami jika ada sesuatu lebih lanjut</p>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Masukkan Password">
 
-    <div class="row">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15846.949961660775!2d110.82985722427225!3d-6.801756607912017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c4ced2d8cc6f%3A0x7b5fc5115df4ea1c!2sAngkringan%20NDelik!5e0!3m2!1sid!2sid!4v1686040387526!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
-      <form action="">
-        <div class="input-group">
-          <i data-feather="user"></i>
-          <input type="text" placeholder="nama">
-        </div>
-        <div class="input-group">
-          <i data-feather="mail"></i>
-          <input type="text" placeholder="email">
-        </div>
-        <div class="input-group">
-          <i data-feather="phone"></i>
-          <input type="text" placeholder="nomor hp">
-        </div>
-        <button type="submit" class="btn">kirim pesan</button>
-      </form>
-    </div>
-  </section>
-  <!--contact section end-->
-  <!--footer-->
-  <footer>
-    <div class="socials">
-      <a href="#"><i data-feather="instagram"></i></a>
-      <a href="#"><i data-feather="twitter"></i></a>
-      <a href="#"><i data-feather="facebook"></i></a>
-    </div>
+                    <a href="#" class="forgot-password">Lupa kata sandi?</a>
 
-    <div class="links">
-      <a href="#home">Home</a>
-      <a href="#about">Tentang Kami</a>
-    </div>
+                    <button type="button" class="login-btn" onclick="window.location.href='index.html'">Login</button>
+                    <p>atau</p>
+                    <button type="button" class="register-btn" onclick="window.location.href='register.html'">Daftar</button>
 
-    <div class="credit">
-      <p>Created by <a href=""></a>yuu one</a>. | &copy; 2023.</p>
-    </div>
-  </footer>
-  <!--Footer end-->
-  <!--Modal box item detail start-->
-  <div class="modal" id="item-detail-modal">
-    <div class="modal-container">
-      <a href="#" class="close-icon"><i data-feather="x"></i></a>
-      <div class="modal-content">
-        <img src="img/1.png" alt="Product 1">
-        <div class="product-content">
-          <h3>Produk 1</h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut maiores deleniti, fuga iste soluta velit ipsa. Esse necessitatibus, quod sapiente cupiditate natus quaerat aliquid iusto?</p>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-          <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart </span></a>
+                </form>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <!--Modal box item detail end-->
-  <!--feather icon-->
-  <script>
-    feather.replace()
-  </script>
-  <!--javascript-->
-  <script src="script.js"></script>
+    </section>
 </body>
 </html>
