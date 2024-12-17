@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metode Pembayaran</title>
+  <link rel="stylesheet" href="pay.css">
+</head>
+<body>
+  <div class="payment-container">
+    <div class="back-icon" onclick="window.location.href='index.html'">◀</div>
+    <h1 class="title">Kartu Kredit</h1>
+    <p class="info">Informasi kartu</p>
+
+    <div class="card-info">
+      <div class="card-number">********************</div>
+      <div class="card-details">
+        <span>dd/mm/yy</span>
+        <span>cvc</span>
+      </div>
+      <div class="card-logo">VISA</div>
+    </div>
+
+    <div class="payment-method">
+      <label class="method">
+        <input type="radio" name="method">
+        <span>Paypal</span>
+      </label>
+      <label class="method">
+        <input type="radio" name="method">
+        <span>Dana</span>
+      </label>
+    </div>
+
+    <p class="total">Total : Rp. 98.000</p>
+    <button class="confirm-button" onclick="window.location.href='konfirm.html'">Konfirmasi</button>
+  </div>
+</body>
+</html>
